@@ -4,7 +4,9 @@
   "description": "backend de rolling vet",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/index.js"
+    "start": "babel-node src/index.js",
+    "babel-node": "babel-node --presets=env",
+    "dev": "nodemon --exec npm run babel-node ./src/index.js"
   },
   "keywords": [
     "request",
