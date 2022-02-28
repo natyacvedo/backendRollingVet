@@ -10,6 +10,7 @@ app.listen( app.get('port'), () => {
     console.log('puerto '+ app.get('port'));
 })
 
+
 //midlewares
 app.use(morgan('dev'));
 app.use(cors());
@@ -19,6 +20,7 @@ app.use(express.urlencoded({extended:true}));
 //archivo estatico
 app.use(express.static(path.join(__dirname, "../public")));
 
+//ruta
 app.get('/turnos',(req, res)=>{
     res.send('aparece lista de turnos');
 })
