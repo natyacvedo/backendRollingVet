@@ -16,7 +16,6 @@ pacienteCtrl.listarPacientes = async (req, res) => {
   }
 };
 //logica para traer los pacientes.
-
 pacienteCtrl.crearPaciente = async (req, res) => {
   try {
     //body
