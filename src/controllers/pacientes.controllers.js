@@ -1,20 +1,21 @@
 import Paciente from "../models/paciente";
-import {
-  validarEdad,
-  validarEmail,
-  validarEspecie,
-  validarNombre,
-  validarNombreHum,
-  validarRaza,
-  validarTel,
-} from "../helpers/ValidacionesPacientes";
 
 const pacienteCtrl = {};
 
-pacienteCtrl.listarPacientes = (req, res) => {
-  //logica para traer los pacientes.
-  res.send("aqui enviaria la lista de pacientes");
+pacienteCtrl.listarPacientes = async (req, res) => {
+  try {
+      //buscar en la bd la coleccion de productos
+      const listaPacientes = await Paciente.find();
+      //enviar resp
+      
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al buscar los productos",
+    });
+  }
 };
+//logica para traer los pacientes.
 
 pacienteCtrl.crearPaciente = async (req, res) => {
   try {
@@ -34,8 +35,8 @@ pacienteCtrl.crearPaciente = async (req, res) => {
 
     //enviar resp
     res.status(201).json({
-        mensaje:"El paciente fue creado correctamente"
-    })
+      mensaje: "El paciente fue creado correctamente",
+    });
   } catch (error) {
     console.log(error);
     res.status(404).json({
