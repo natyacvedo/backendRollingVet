@@ -5,6 +5,8 @@ import path from "path";
 import router from "./routes/pacientes.routes";
 import routerComent from "./routes/comentarios.routes";
 import './database';
+import routerUser from "./routes/usuarios.routes";
+
 
 const app = express();
 app.set('port', process.env.PORT || 4000);
@@ -24,3 +26,4 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use('/apipacientes',router)
 app.use('/apicomentarios',routerComent)
+app.use('/apiuser',routerUser)
