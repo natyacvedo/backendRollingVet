@@ -7,7 +7,7 @@ pacienteCtrl.listarPacientes = async (req, res) => {
       //buscar en la bd la coleccion de productos
       const listaPacientes = await Paciente.find();
       //enviar resp
-      
+      res.status(200).json(listaPacientes);
   } catch (error) {
     console.log(error);
     res.status(404).json({
