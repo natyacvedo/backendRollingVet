@@ -8,10 +8,13 @@ const pacienteSchema = new Schema({
     email:{
         type: String,
         required:true,
-        unique:true
     },
     tel:{
         type:Number,
+        required:true
+    },
+    nombre:{
+        type: String,
         required:true
     },
     especie:{

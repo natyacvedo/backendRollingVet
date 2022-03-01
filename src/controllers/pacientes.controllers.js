@@ -45,4 +45,46 @@ pacienteCtrl.crearPaciente = async (req, res) => {
   }
 };
 
+pacienteCtrl.obtenerPaciente =async(req,res)=>{
+  try {
+   console.log(req.params.id);
+   const pacienteBuscado = await Paciente.findById(req.params.id);
+   res.status(200).json(pacienteBuscado);
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al buscar un paciente",
+    });
+  }
+}
+
+pacienteCtrl.editarPaciente = async(req,res)=>{
+  try {
+    console.log(req.params.id);
+    console.log(req.body);
+
+    await Paciente.findByIdAndUpdate(req.params.id,req.body);
+    res.status(200).json({mensaje:'se editó correctamente'})
+    
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al editar un paciente",
+    });
+  }
+}
+
+pacienteCtrl.borrarPaciente = async ( req,res) => {
+  try {
+    //buscar por id y borrar
+    await Paciente.findByIdAndDelete
+    res.status(200).json({mensaje:'El paciente fue eliminado'});
+    
+  } catch (error) {    console.log(error);
+    res.status(404).json({
+      mensaje: "Error al borrar un paciente",
+    });
+  }
+}
+
 export default pacienteCtrl;
