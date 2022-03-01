@@ -4,8 +4,10 @@ import cors from "cors";
 import path from "path";
 import router from "./routes/pacientes.routes";
 import routerComent from "./routes/comentarios.routes";
+import rutas from "./routes/turnos.routes";
 import './database';
 import routerUser from "./routes/usuarios.routes";
+
 
 
 const app = express();
@@ -14,6 +16,7 @@ app.set('port', process.env.PORT || 4000);
 app.listen( app.get('port'), () => {
     console.log('puerto '+ app.get('port'));
 })
+
 
 //midlewares
 app.use(morgan('dev'));
@@ -27,3 +30,6 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use('/apipacientes',router)
 app.use('/apicomentarios',routerComent)
 app.use('/apiuser',routerUser)
+app.use('/apiturnos',rutas)
+
+
