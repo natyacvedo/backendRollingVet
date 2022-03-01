@@ -26,3 +26,5 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use('/apipacientes',router)
 app.use('/apiturnos',rutas)
+
+
