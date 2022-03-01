@@ -5,7 +5,7 @@ turnoCtrl.listadoTurnos = (req, res) => {
 };
 
 turnoCtrl.crearTurno = (req, res) => {
-    console.log(req.body);
+  console.log(req.body);
   res.send("doy de alta un turno");
 };
 
