@@ -77,7 +77,7 @@ pacienteCtrl.editarPaciente = async(req,res)=>{
 pacienteCtrl.borrarPaciente = async ( req,res) => {
   try {
     //buscar por id y borrar
-    await Paciente.findByIdAndDelete
+    await Paciente.findByIdAndDelete(req.params.id)
     res.status(200).json({mensaje:'El paciente fue eliminado'});
     
   } catch (error) {    console.log(error);
