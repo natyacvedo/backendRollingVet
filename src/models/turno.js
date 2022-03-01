@@ -20,3 +20,7 @@ const turnoSchema = new Schema({
         maxlength: 150
     }
 });
+
+const Turno = mongoose.model('turno',turnoSchema);
+
+export default Turno;
